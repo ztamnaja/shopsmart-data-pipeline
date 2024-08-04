@@ -13,3 +13,4 @@ venv.bak/
 airflow/logs/
 */logs/
 connections.json
+notebook/

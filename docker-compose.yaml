@@ -26,10 +26,10 @@ x-airflow-common: &airflow-common
     EXECUTOR: Local
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:${AIRFLOW_DB_PASSWORD}@postgres/airflow # for airflow logs
     AIRFLOW_CONN_DESTINATION_POSTGRES: postgres://${DESTINATION_DB_USER}:${DESTINATION_DB_PASSWORD}@${DESTINATION_DB_HOST}:${DESTINATION_DB_PORT}/${DESTINATION_DB_NAME} # for processed data
-    AIRFLOW__WEBSERVER__DEFAULT_USER_USERNAME: airflow
+    AIRFLOW__WEBSERVER__DEFAULT_USER_USERNAME: ${AIRFLOW_DEFAULT_WEBSERVER_USER}
     AIRFLOW__WEBSERVER__DEFAULT_USER_PASSWORD: ${AIRFLOW_DEFAULT_WEBSERVER_PASSWORD}
-    AIRFLOW_WWW_USER_USERNAME: airflow
-    AIRFLOW_WWW_USER_PASSWORD: ${AIRFLOW_DEFAULT_WWW_USER_PASSWORD}
+    AIRFLOW_WWW_USER_USERNAME: ${AIRFLOW_DEFAULT_WEBSERVER_USER}
+    AIRFLOW_WWW_USER_PASSWORD: ${AIRFLOW_DEFAULT_WEBSERVER_PASSWORD}
     AIRFLOW__WEBSERVER__SECRET_KEY: secret
     AIRFLOW__CORE__LOAD_EXAMPLES: "false"
     # _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-r requirements.txt} # work in test env
@@ -78,7 +78,7 @@ services:
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:${AIRFLOW_DB_PASSWORD}@postgres/airflow
     command: >
       bash -c "airflow db init && 
-               airflow users create --username airflow --password ${AIRFLOW_DEFAULT_WEBSERVER_PASSWORD} --firstname John --lastname Doe --role Admin --email admin@example.com"
+               airflow users create --username ${AIRFLOW_DEFAULT_WEBSERVER_USER} --password ${AIRFLOW_DEFAULT_WEBSERVER_PASSWORD} --firstname John --lastname Doe --role Admin --email admin@example.com"
 
   airflow-scheduler:
     <<: *airflow-common
