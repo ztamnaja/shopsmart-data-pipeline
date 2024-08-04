@@ -10,5 +10,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+airflow/logs/
+*/logs/
 connections.json
