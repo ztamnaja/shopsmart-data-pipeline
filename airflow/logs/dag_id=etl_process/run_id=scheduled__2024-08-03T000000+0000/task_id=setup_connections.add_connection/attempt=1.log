@@ -1,0 +1,25 @@
+[2024-08-04T06:58:45.743+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-04T06:58:45.774+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_process.setup_connections.add_connection scheduled__2024-08-03T00:00:00+00:00 [queued]>
+[2024-08-04T06:58:45.785+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_process.setup_connections.add_connection scheduled__2024-08-03T00:00:00+00:00 [queued]>
+[2024-08-04T06:58:45.786+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-08-04T06:58:45.799+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): setup_connections.add_connection> on 2024-08-03 00:00:00+00:00
+[2024-08-04T06:58:45.806+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_process', 'setup_connections.add_connection', 'scheduled__2024-08-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/etl_pipeline.py', '--cfg-path', '/tmp/tmppb4koaqu']
+[2024-08-04T06:58:45.808+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask setup_connections.add_connection
+[2024-08-04T06:58:45.810+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=39) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-08-04T06:58:45.811+0000] {standard_task_runner.py:63} INFO - Started process 56 to run task
+[2024-08-04T06:58:45.861+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_process.setup_connections.add_connection scheduled__2024-08-03T00:00:00+00:00 [running]> on host 28819dc9564a
+[2024-08-04T06:58:45.960+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ztamnaja' AIRFLOW_CTX_DAG_ID='etl_process' AIRFLOW_CTX_TASK_ID='setup_connections.add_connection' AIRFLOW_CTX_EXECUTION_DATE='2024-08-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-08-03T00:00:00+00:00'
+[2024-08-04T06:58:45.961+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-04T06:58:45.999+0000] {logging_mixin.py:188} INFO - adding conn: destination_db_conn
+[2024-08-04T06:58:45.999+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-08-04T06:58:46.013+0000] {connections.py:34} INFO - id: destination_db_conn. Host: destination_db, Port: 5432, Schema: shopsmart, Login: postgres, Password: XXXXXXXX, extra: None
+[2024-08-04T06:58:46.014+0000] {connections.py:35} INFO - Connection destination_db_conn is created
+[2024-08-04T06:58:46.015+0000] {logging_mixin.py:188} INFO - adding conn: r2_backup_lake_conn
+[2024-08-04T06:58:46.026+0000] {connections.py:34} INFO - id: r2_backup_lake_conn. Host: None, Port: None, Schema: None, Login: bc777ffc1be4d610566f462f9ebc13ff, Password: XXXXXXXX, extra: XXXXXXXX
+[2024-08-04T06:58:46.026+0000] {connections.py:35} INFO - Connection r2_backup_lake_conn is created
+[2024-08-04T06:58:46.027+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-04T06:58:46.028+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-04T06:58:46.038+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=etl_process, task_id=setup_connections.add_connection, run_id=scheduled__2024-08-03T00:00:00+00:00, execution_date=20240803T000000, start_date=20240804T065845, end_date=20240804T065846
+[2024-08-04T06:58:46.106+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-08-04T06:58:46.133+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-04T06:58:46.136+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

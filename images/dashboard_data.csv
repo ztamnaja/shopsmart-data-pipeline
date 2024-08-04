@@ -1,0 +1,27 @@
+top_products
+product_name,total_sold
+Product 1,15
+Product 3,6
+Product 2,4
+
+
+avg_order_value
+customer_id,avg_order_value
+C002,600.0
+C001,700.0
+C003,600.0
+
+
+revenue_by_category
+category,total_revenue
+Category A,2400.0
+Category B,800.0
+
+
+daily_sales_quantity
+date,total_quantity
+2024-02-04,6
+2024-02-10,1
+2024-03-12,5
+2024-03-29,3
+2024-06-22,10
